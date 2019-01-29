@@ -282,10 +282,14 @@ render ctx = go
     for_ rest \pt -> Canvas.lineTo ctx pt.x pt.y
     when cl $ void $ Canvas.closePath ctx
   renderShape fill (SVGPath p) = (if fill then Canvas.fillSVGPath else Canvas.strokeSVGPath) ctx p
-  renderShape fill (Rectangle r) = do
-    Canvas.rect ctx r
-    (if fill then Canvas.fill else Canvas.stroke) ctx
+  renderShape fill (Rectangle r) =
+    (if fill then
+      Canvas.fillPath ctx
+      else
+        Canvas.strokePath ctx) (Canvas.rect ctx r)
   renderShape fill (Arc a) = do
-    Canvas.arc ctx a
-    (if fill then Canvas.fill else Canvas.stroke) ctx
+    (if fill then
+      Canvas.fillPath ctx
+      else
+        Canvas.strokePath ctx) (Canvas.arc ctx a)
   renderShape fill (Composite ds) = for_ ds (renderShape fill)
