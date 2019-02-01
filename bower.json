@@ -17,7 +17,7 @@
     "url": "git://github.com/karshan/purescript-drawing.git"
   },
   "dependencies": {
-    "purescript-canvas": "git://github.com/karshan/purescript-canvas#fb86da1e39c4dd55bb8310902e22c1f7e852ef32",
+    "purescript-canvas": "git://github.com/karshan/purescript-canvas#0e42692da04981ba688670a4055c2275fdf6894e",
     "purescript-lists": "^5.0.0",
     "purescript-math": "^2.1.1",
     "purescript-integers": "^4.0.0",
